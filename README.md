@@ -1,4 +1,3 @@
-```markdown
 # 🖥️ 桌面宠物
 基于 Python + PyQt5 开发的交互式桌面萌宠
 
@@ -18,18 +17,14 @@
 找到微信路径代码：
 ```python
 wechat_path = r"C:\Program Files\Tencent\Weixin\Weixin.exe"
-```
-
 获取本机微信真实路径
 桌面微信快捷方式右键 →【属性】
 复制【目标】一栏完整路径，替换上面代码内路径即可
-
----
-## ⚙️ 环境、运行与打包方法
+⚙️ 环境、运行与打包方法
 运行环境：Python3.7 + PyQt5
-
-### ▶️ 运行方式
-```bash
+▶️ 运行方式
+bash
+运行
 # 基础启动
 python run.py
 
@@ -38,22 +33,17 @@ python run.py --daemon
 
 # 启动并开启托盘功能（推荐）
 python run.py --tray
-```
-
-### 📦 打包命令
-```bash
+📦 打包命令
+bash
+运行
 pyinstaller run.spec
-```
-> 说明：打包配置仅在 Mac 上测试通过，Windows 平台适配情况未知
-
----
-## 📂 文件说明
-### `core/action.py`
-配置桌宠全部动画动作，动画素材图片存放于 `img` 文件夹。
-你可以自由新增 / 删减动作：将每一帧图片放入`img`文件夹，再在`action.py`中配置对应路径，程序会自动读取加载。
-
-### `core/settings.py` 全局配置参数
-```yaml
+说明：打包配置仅在 Mac 上测试通过，Windows 平台适配情况未知
+📂 文件说明
+core/action.py
+配置桌宠全部动画动作，动画素材图片存放于 img 文件夹。
+你可以自由新增 / 删减动作：将每一帧图片放入img文件夹，再在action.py中配置对应路径，程序会自动读取加载。
+core/settings.py 全局配置参数
+yaml
 MOVIE_TIME_INTERVAL: 每个动画的播放间隔，单位 秒
 INIT_PICTURE: 桌宠静止时默认的图片
 TRAY_ICON: 系统托盘的图标
@@ -61,10 +51,6 @@ ICON: 程序窗口图标
 MOUSE_TO_LEFT_*: 鼠标左滑时的动作，一共三帧
 MOUSE_TO_RIGHT_*: 鼠标右滑时的动作，一共三帧
 WALK: 行走的动作，一共2帧，多余帧不会播放
-```
-
----
-## 💬 联系方式
+💬 联系方式
 如果你有新的功能想法，或是运行程序遇到问题，欢迎联系！
-邮箱：`19821620659@163.com`
-```
+邮箱：19821620659@163.com
