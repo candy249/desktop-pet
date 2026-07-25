@@ -25,22 +25,26 @@
 找到微信路径代码：
 ```python
 wechat_path = r"C:\Program Files\Tencent\Weixin\Weixin.exe"
+```
 获取本机微信真实路径：
 桌面微信快捷方式右键 →【属性】，复制【目标】完整路径，替换代码内路径。
-📌 系统托盘功能
+
+### 📌 系统托盘功能
 程序支持托盘后台运行，托盘菜单文字自动跟随宠物显示 / 隐藏状态同步切换
-宠物窗口可见：菜单文字【隐藏宠物】
-宠物窗口隐藏：菜单文字【显示宠物】
-🎮 智能置顶逻辑
+- 宠物窗口可见：菜单文字【隐藏宠物】
+- 宠物窗口隐藏：菜单文字【显示宠物】
+
+### 🎮 智能置顶逻辑
 全屏游戏 / 全屏视频自动临时取消置顶，退出全屏自动恢复置顶，不会遮挡全屏程序。
-⚙️ 环境、运行与打包方法
-1. 安装依赖
-bash
-运行
+
+## ⚙️ 环境、运行与打包方法
+### 1. 安装依赖
+```bash
 pip install PyQt5 pywin32
-2. 三种启动方式
-bash
-运行
+```
+
+### 2. 三种启动方式
+```bash
 # 基础启动，直接显示宠物
 python run.py
 
@@ -49,17 +53,21 @@ python run.py --daemon
 
 # 托盘后台启动（推荐，程序初始隐藏，仅右下角托盘图标）
 python run.py --tray
-📦 打包 exe 命令
-bash
-运行
+```
+
+### 📦 打包 exe 命令
+```bash
 pyinstaller run.spec
-说明：打包配置经过 Windows 适配，Mac 平台可自行微调参数
-📂 项目文件说明
-core/action.py
+```
+> 说明：打包配置经过 Windows 适配，Mac 平台可自行微调参数
+
+## 📂 项目文件说明
+### `core/action.py`
 配置桌宠全部待机动画序列，图片素材存放于 img 文件夹。
 新增动画方式：将图片放入 img 目录，在 action.py 中定义图片列表，程序自动加载。
-core/settings.py 全局参数
-plaintext
+
+### `core/settings.py` 全局参数
+```
 MOVIE_TIME_INTERVAL：待机动画间隔，单位 秒
 INIT_PICTURE：宠物静止默认图片
 TRAY_ICON：系统托盘图标
@@ -67,8 +75,12 @@ ICON：程序窗口图标
 MOUSE_TO_LEFT_1/2/3：向左拖拽三帧贴图
 MOUSE_TO_RIGHT_1/2/3：向右拖拽三帧贴图
 WALK：行走动画帧列表
-core/pets.py
+```
+
+### `core/pets.py`
 主窗口交互逻辑：拖拽、行走动画、托盘、置顶检测、鼠标事件、右键菜单
-💬 反馈交流
+
+## 💬 反馈交流
 如果你有新功能想法，或是运行程序遇到 BUG，欢迎提交 Issues 或者联系！
 邮箱：19821620659@163.com
+```
