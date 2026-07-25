@@ -19,9 +19,16 @@ class Ability(object):
             self.pet.sender().setText("开启自由落体")
 
     def openWechat(self):
-        if self.system == "posix":
+        # Windows系统
+        if self.system == "nt":
+            wechat_path = r"C:\Program Files\Tencent\Weixin\Weixin.exe"
+            if os.path.exists(wechat_path):
+                os.startfile(wechat_path)
+        # Mac系统原有逻辑保留
+        elif self.system == "posix":
             self.pet.thread = Thread(app="wechat")
             self.pet.thread.start()
+
 
 class Thread(QThread):
     def __init__(self, app=None):

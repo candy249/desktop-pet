@@ -15,6 +15,7 @@ if __name__ == '__main__':
         tray = False
     app = QApplication(argv)
     pet = DesktopPet(tray=tray)
+
     pet.show()
     pet.welcomePage()
     sys.exit(app.exec())

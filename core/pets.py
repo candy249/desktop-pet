@@ -21,6 +21,8 @@ class DesktopPet(QMainWindow):
         self.draging = False
         self.autoFalling = False
         self.contenting = False
+        # 新增这一行
+        self.mDragPosition = None
         self.tray = tray
         self.initUI()
         self.startMovie()
@@ -68,7 +70,7 @@ class DesktopPet(QMainWindow):
         """鼠标移动事件"""
         if self.playing or self.walking:
             return
-        if Qt.LeftButton:
+        if event.buttons() & Qt.LeftButton:
             self.move(event.globalPos() - self.mDragPosition)
             moveDistance = (self.mDragPosition - event.pos()).x()
             if -1 <= moveDistance < 0:
@@ -108,7 +110,8 @@ class DesktopPet(QMainWindow):
 
         wechat = menu.addAction("打开微信")
         wechat.triggered.connect(ability.openWechat)
-        wechat.setIcon(QIcon(str(self.imgDir / settings.WECHAT)))
+        # 下面这行注释/删掉，避免找不到WECHAT图片报错
+        # wechat.setIcon(QIcon(str(self.imgDir / settings.WECHAT)))
 
         fall = menu.addAction("关闭自由落体" if self.autoFalling else "开启自由落体")
         fall.triggered.connect(ability.fall)
